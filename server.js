@@ -28,6 +28,9 @@ const transporter = nodemailer.createTransport({
     auth: {
         user: 'chrisjones0517@gmail.com',
         pass: process.env.EMAIL_PASS
+    },
+    tls: {
+        rejectUnauthorized: false
     }
 });
 
