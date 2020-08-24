@@ -10,7 +10,7 @@ dotenv.config({ path: './config/.env' });
 
 connectDB();
 
-// app.use(enforce.HTTPS({ trustProtoHeader: true }));
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.use(express.json());
 app.use(express.static('public'));
 app.use('/', public);
@@ -40,6 +40,8 @@ function sendEmail(req, res, next) {
             msg = msg.replace('%first%', firstName);
             msg = msg.replace('%name%', req.body[i].contactName);
             msg = msg.replace('%position%', req.body[i].position);
+            const resumeAdded = msg.indexOf('%resume%');
+            msg = msg.replace('%resume%', '');
 
             const mailOptions = {
                 from: 'chris.jones@alphalowvoltagesystems.com',
@@ -67,16 +69,20 @@ function sendEmail(req, res, next) {
                     filename: 'github.png',
                     path: __dirname + '/public/github.png',
                     cid: '46h68f2shhl4llu8a7sp2kd4d0vg9mr@nodemailer.com'
-                },
-                {
+                }
+                ]
+            };
+
+            if (resumeAdded !== -1) {
+                mailOptions.attachments = [...mailOptions.attachments, {
                     filename: 'chrisjones2020.pdf',
                     path: __dirname + '/public/chrisJones2020.pdf'
                 },
                 {
                     filename: 'chrisjones2020.doc',
                     path: __dirname + '/public/chrisJones2020.doc'
-                }]
-            };
+                }];
+            }
 
             transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
