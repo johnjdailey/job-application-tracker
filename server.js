@@ -22,11 +22,11 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.zoho.com',
+    host: 'smtp.gmail.com',
     port: 465,
     secure: true,
     auth: {
-        user: 'contact@alphalowvoltagesystems.com',
+        user: 'chrisjones0517@gmail.com',
         pass: process.env.EMAIL_PASS
     }
 });
@@ -42,7 +42,7 @@ function sendEmail(req, res, next) {
             msg = msg.replace('%position%', req.body[i].position);
 
             const mailOptions = {
-                from: 'contact@alphalowvoltagesystems.com',
+                from: 'chrisjones0517@gmail.com',
                 to: req.body[i].email,
                 subject: req.body[i].subject,
                 text: msg,
@@ -70,11 +70,11 @@ function sendEmail(req, res, next) {
                 },
                 {
                     filename: 'chrisjones2020.pdf',
-                    path: __dirname + '/public/chrisjones2020.pdf'
+                    path: __dirname + '/public/chrisJones2020.pdf'
                 },
                 {
                     filename: 'chrisjones2020.doc',
-                    path: __dirname + '/public/chrisjones2020.doc'
+                    path: __dirname + '/public/chrisJones2020.doc'
                 }]
             };
 
