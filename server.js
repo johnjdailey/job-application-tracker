@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
+    host: 'smtp.zoho.com',
     port: 465,
     secure: true,
     auth: {
@@ -95,4 +95,3 @@ function sendEmail(req, res, next) {
     }
 }
 
-// fuck google
