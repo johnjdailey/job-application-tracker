@@ -1,0 +1,67 @@
+body {
+    position: relative;
+    min-height: 100vh;
+    margin-bottom: 38rem;
+}
+
+.login-form {
+    text-align: center;
+    max-width: 20rem;
+    margin: auto;
+    margin-top: 10rem;
+}
+
+.logo {
+    width: 300px;
+    padding: 1rem;
+}
+
+footer {
+    width: 100%;
+}
+
+#result-msg {
+    color: #ff0000;
+}
+
+.company-table {
+    margin: auto;
+    width: 90%;
+}
+
+td, th {
+    text-align: center;
+    max-width: 10rem !important;
+    word-wrap: break-word;
+}
+
+.contacted, .response, .providedWork {
+    width: 5rem !important;
+}
+
+a {
+    font-size: 1.5rem;
+}
+
+#status-msg {
+    font-size: 1.5rem;
+}
+
+#action-container {
+    margin: 5rem 0;
+}
+
+#templates-form {
+    width: 50%;
+    margin: auto;
+}
+
+#form-group {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 2rem;
+}
