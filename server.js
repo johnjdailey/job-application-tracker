@@ -39,6 +39,7 @@ function sendEmail(req, res, next) {
             let msg = message.replace('%company%', req.body[i].company);
             msg = msg.replace('%first%', firstName);
             msg = msg.replace('%name%', req.body[i].contactName);
+            msg = msg.replace('%position%', req.body[i].position);
 
             const mailOptions = {
                 from: 'chrisjones0517@gmail.com',

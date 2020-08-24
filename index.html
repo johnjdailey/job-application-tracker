@@ -23,6 +23,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Select</th>
                     <th scope="col">Company</th>
+                    <th scope="col">Position</th>
                     <th scope="col">Contact</th>
                     <th scope="col">Email</th>
                     <th scope="col">Template</th>
@@ -46,6 +47,10 @@
                     <input id="company" class="form-control" type="text"></td>
                 </div>
                 <div class="col form-group">
+                    <label for="position">Position</label>
+                    <input id="position" class="form-control" type="text"></td>
+                </div>
+                <div class="col form-group">
                     <label for="contact">Contact</label>
                     <input id="contact" class="form-control" type="text">
                 </div>
@@ -53,26 +58,25 @@
                     <label for="email">Email</label>
                     <input id="email" class="form-control" type="email">
                 </div>
-                <div class="col form-group">
+            </div>
+            <div class="row mx-5 text-center">
+                <div class="col-3 form-group">
                     <label for="template-input">Template</label>
                     <select id="template-input" class="form-control">
                     </select>
                 </div>
-            </div>
-            <div class="row mx-5 text-center">
-                <div class="col-1"></div>
                 <div class="col-2 form-group">
                     <label for="phone">Phone</label>
                     <input id="phone" class="form-control" type="tel">
                 </div>
-                <div class="col-2 form-group">
+                <div class="col-1 form-group">
                     <label for="contacted">Contacted</label>
                     <select id="contacted" class="form-control">
                         <option value="NO">NO</option>
                         <option value="YES">YES</option>
                     </select>
                 </div>
-                <div id="date" class="col-2 form-group date-form">
+                <div id="date" class="col-1 form-group date-form">
                     <label for="month">Month</label>
                     <input id="month" class="date-field form-control" type="number" value="${mm}" min="1" max="12">
                     <label for="day">Day</label>
@@ -81,21 +85,20 @@
                     <input id="year" class="date-field form-control" type="number" value="${yyyy}" min="2000"
                         max="2040">
                 </div>
-                <div class="col-2 form-group">
+                <div class="col-1 form-group">
                     <label for="response">Received Response</label>
                     <select id="response" class="form-control">
                         <option value="NO">NO</option>
                         <option value="YES">YES</option>
                     </select>
                 </div>
-                <div class="col-2 form-group">
+                <div class="col-1 form-group">
                     <label for="jobs">Interview Offered</label>
                     <select id="jobs" class="form-control">
                         <option value="NO">NO</option>
                         <option value="YES">YES</option>
                     </select>
                 </div>
-                <div class="col-1"></div>
             </div>
             <div id="action-container" class="text-center mt-5 form-group">
                 <div>

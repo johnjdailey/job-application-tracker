@@ -28,6 +28,7 @@ $(document).ready(() => {
                     <th scope="row" class="index">${i + 1}</th>
                     <td class="checkbox"><input class="target-row" type="checkbox"></td>
                     <td class="company-name">${companies[i].company}</td>
+                    <td class="company-position">${companies[i].position}</td>
                     <td class="contact-name">${companies[i].contact}</td>
                     <td class="email">${companies[i].email}</td>
                     <td class="template">${companies[i].template}</td>
@@ -63,18 +64,19 @@ $(document).ready(() => {
             } else {
                 $(e.target).attr('checked', true);
                 const fields = $(e.target).parent().siblings();
-                const dateArray = fields[7].textContent.split('-');
+                const dateArray = fields[8].textContent.split('-');
                 $('#company').val(fields[1].textContent);
-                $('#contact').val(fields[2].textContent);
-                $('#email').val(fields[3].textContent);
-                $('#template-input').val(fields[4].textContent);
-                $('#phone').val(fields[5].textContent);
-                $('#contacted').val(fields[6].textContent);
+                $('#position').val(fields[2].textContent);
+                $('#contact').val(fields[3].textContent);
+                $('#email').val(fields[4].textContent);
+                $('#template-input').val(fields[5].textContent);
+                $('#phone').val(fields[6].textContent);
+                $('#contacted').val(fields[7].textContent);
                 $('#month').val(dateArray[0] ? dateArray[0] : mm);
                 $('#day').val(dateArray[1] ? dateArray[1] : dd);
                 $('#year').val(dateArray[2] ? dateArray[2] : yyyy);
-                $('#response').val(fields[8].textContent);
-                $('#jobs').val(fields[9].textContent);
+                $('#response').val(fields[9].textContent);
+                $('#jobs').val(fields[10].textContent);
             }
         });
     })();
@@ -86,6 +88,7 @@ $(document).ready(() => {
     $('#lead-submit').click(() => {
         const selection = $('#action').val();
         const company = $('#company').val();
+        const position = $('#position').val();
         const contact = $('#contact').val();
         const email = $('#email').val();
         const template = $('#template-input').val();
@@ -97,6 +100,7 @@ $(document).ready(() => {
 
         const newCompany = {
             company,
+            position,
             contact,
             email,
             template,
@@ -105,6 +109,7 @@ $(document).ready(() => {
 
         const updateCompany = {
             company,
+            position,
             contact,
             email,
             template,
@@ -163,11 +168,12 @@ $(document).ready(() => {
                     const clients = [];
                     targets.each((index, item) => {
                         const fields = $(item).children();
-                        const { message, subject } = JSON.parse(localStorage.getItem(fields[5].textContent));
+                        const { message, subject } = JSON.parse(localStorage.getItem(fields[6].textContent));
                         const mailObj = {
-                            email: fields[4].textContent,
+                            email: fields[5].textContent,
                             company: fields[2].textContent,
-                            contactName: fields[3].textContent,
+                            position: fields[3].textContent,
+                            contactName: fields[4].textContent,
                             message,
                             subject
                         };
@@ -249,6 +255,7 @@ function showError(msg) {
 
 function clearLeadForm() {
     $('#company').val('');
+    $('#position').val('');
     $('#contact').val('');
     $('#email').val('');
     $('#template-input').val('');

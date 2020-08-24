@@ -23,12 +23,16 @@ exports.getCompanies = async (req, res, next) => {
 };
 
 exports.updateCompany = async (req, res, next) => {
+
     const newData = {
         company: req.body.company,
     };
 
     if (req.body.contact) {
         newData.contact = req.body.contact;
+    }
+    if (req.body.position) {
+        newData.position = req.body.position;
     }
     if (req.body.email) {
         newData.email = req.body.email;
