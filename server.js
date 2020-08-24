@@ -94,3 +94,5 @@ function sendEmail(req, res, next) {
         return res.sendStatus(500);
     }
 }
+
+// fuck google
