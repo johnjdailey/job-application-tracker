@@ -22,11 +22,11 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
+    host: 'smtp.zoho.com',
     port: 465,
     secure: true,
     auth: {
-        user: 'chrisjones0517@gmail.com',
+        user: 'chris.jones@alphalowvoltagesystems.com',
         pass: process.env.EMAIL_PASS
     }
 });
@@ -42,7 +42,7 @@ function sendEmail(req, res, next) {
             msg = msg.replace('%position%', req.body[i].position);
 
             const mailOptions = {
-                from: 'chrisjones0517@gmail.com',
+                from: 'chris.jones@alphalowvoltagesystems.com',
                 to: req.body[i].email,
                 subject: req.body[i].subject,
                 text: msg,
