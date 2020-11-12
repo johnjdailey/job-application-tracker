@@ -11,9 +11,9 @@ $(document).ready(() => {
             headers: { 'token': localStorage.getItem('token') }
         });
 
-        if (res.status !== 200) {
-            window.location.assign(window.location.href + 'login');
-        }
+        // if (res.status !== 200) {
+        //     window.location.assign(window.location.href + 'login');
+        // }
 
         const companies = await res.json();
         const response = await fetch('/api/templates', {

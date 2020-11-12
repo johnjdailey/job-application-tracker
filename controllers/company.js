@@ -12,8 +12,19 @@ exports.addCompany = async (req, res, next) => {
 
 exports.getCompanies = async (req, res, next) => {
     try {
-        const companies = await Company.find({}).sort({ company: 'asc' });
-        res.status(200).json(companies);
+        const companies = await Company.find({});
+        const sorted = companies.sort((a, b) => {
+            const companyA = a.company.toLowerCase();
+            const companyB = b.company.toLowerCase();
+            let comparison = 0;
+            if (companyA > companyB) {
+                comparison = 1;
+            } else if (companyA < companyB) {
+                comparison = -1;
+            }
+            return comparison;
+        });
+        res.status(200).json(sorted);
     } catch (error) {
         return res.status(500).json({
             success: false,

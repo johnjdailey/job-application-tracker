@@ -1,5 +1,4 @@
 const express = require('express');
-const enforce = require('express-sslify');
 const nodemailer = require('nodemailer');
 const public = require('./routes/public');
 const protected = require('./routes/protected');
@@ -7,10 +6,8 @@ const dotenv = require('dotenv');
 const app = express();
 const connectDB = require('./config/db');
 dotenv.config({ path: './config/.env' });
-
 connectDB();
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.use(express.json());
 app.use(express.static('public'));
 app.use('/', public);
@@ -22,11 +19,11 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.zoho.com',
+    host: 'smtp.gmail.com',
     port: 465,
     secure: true,
     auth: {
-        user: 'chris.jones@alphalowvoltagesystems.com',
+        user: 'chrisjones0517@gmail.com',
         pass: process.env.EMAIL_PASS
     }
 });
@@ -44,7 +41,7 @@ function sendEmail(req, res, next) {
             msg = msg.replace('%resume%', '');
 
             const mailOptions = {
-                from: 'chris.jones@alphalowvoltagesystems.com',
+                from: 'chrisjones0517@gmail.com',
                 to: req.body[i].email,
                 subject: req.body[i].subject,
                 text: msg,
