@@ -17,7 +17,7 @@ app.use('/api/email', sendEmail)
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
-
+// test
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
